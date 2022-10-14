@@ -25,8 +25,8 @@ public class Driver {
     }
     private static ChromeOptions setUpOptions() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("window-size=3840,2160");
-        options.addArguments("--force-device-scale-factor=0.75");;
+        options.addArguments("window-size=1000,2000");
+        options.addArguments("--force-device-scale-factor=1");
         return options;
     }
 }
