@@ -40,7 +40,7 @@ public class loginTest {
     private void firstPartTest() throws InterruptedException {
 
         String emailBar = "emaxer@gmail.com";
-        String password = "123456789";
+        String password = "124754567459";
       //  String isPasswordCorrect = null;
         String isNotCorect = "Neteisingas el. pašto adresas arba slaptažodis";
         WebElement loginEmail = driver.findElement(By.xpath("//input[@id='user_email']"));
@@ -56,7 +56,6 @@ public class loginTest {
         isPasswordCorrect.getText();
         Assert.assertFalse(Boolean.parseBoolean(String.valueOf(isPasswordCorrect)), isNotCorect);
 
-
     }
         @AfterMethod
         private void close () {
@@ -67,5 +66,4 @@ public class loginTest {
             }
             driver.quit();
         }
-
 }

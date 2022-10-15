@@ -1,6 +1,8 @@
 package tests;//package readme.seleniumEasy.introduction;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import jdk.internal.icu.impl.BMPSet;
+import jdk.internal.org.objectweb.asm.tree.InsnList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,20 +41,21 @@ public class Senukai {
     private void testInputFieldSeleniumEasy() throws InterruptedException {
 
         String searchBar = "iPhone";
-        String actualFullName;
+        WebElement lookText = null;
+
 
         WebElement singleInputField = driver.findElement(By.xpath("//input[@id='q']"));
         singleInputField.sendKeys(searchBar);
 
-        WebElement buttonShowMessage = driver.findElement(By.xpath("//input[@id='$0']"));
+        WebElement buttonShowMessage = driver.findElement(new By.ByClassName("main-search__submit"));
         buttonShowMessage.click();
-        WebElement clickButton = driver.findElement(new By.ByClassName("main-search-submit__icon icon-svg"));
-        clickButton.click();
 
+        lookText = driver.findElement(new By.ByClassName("ks-mobile-menu-title sn-topBar-title"));
+        lookText.getText();
 
-        actualFullName = driver.findElement(By.xpath("ks-mobile-menu-title sn-topBar-title")).getText();
+        String actualFullName = String.valueOf(lookText);
+        Assert.assertTrue(actualFullName.contains(searchBar));
 
-         Assert.assertFalse(Boolean.parseBoolean(actualFullName), searchBar);
     }
 
     @Test
@@ -63,15 +66,7 @@ public class Senukai {
         WebElement clickButton = driver.findElement(new By.ByClassName("main-search-submit__icon icon-svg"));
         clickButton.click();
 
-
-
-
-
     }
-
-
-
-
 
 
     @AfterMethod
