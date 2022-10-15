@@ -58,15 +58,8 @@ public class Senukai {
 
     }
 
-    @Test
-    private void firstPartTest() throws InterruptedException {
 
-        WebElement buttonShowMessage = driver.findElement(By.xpath("//input[@id='$0']"));
-        buttonShowMessage.click();
-        WebElement clickButton = driver.findElement(new By.ByClassName("main-search-submit__icon icon-svg"));
-        clickButton.click();
 
-    }
 
 
     @AfterMethod
