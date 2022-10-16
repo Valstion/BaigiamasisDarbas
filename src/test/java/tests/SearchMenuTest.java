@@ -1,8 +1,6 @@
 package tests;//package readme.seleniumEasy.introduction;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import jdk.internal.icu.impl.BMPSet;
-import jdk.internal.org.objectweb.asm.tree.InsnList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +14,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class Senukai {
+public class SearchMenuTest {
 
     WebDriver driver;
     private TimeUnit thread;
@@ -42,33 +40,25 @@ public class Senukai {
 
         String searchBar = "iPhone";
         WebElement lookText = null;
-
-
         WebElement singleInputField = driver.findElement(By.xpath("//input[@id='q']"));
         singleInputField.sendKeys(searchBar);
-
         WebElement buttonShowMessage = driver.findElement(new By.ByClassName("main-search__submit"));
         buttonShowMessage.click();
-
-        lookText = driver.findElement(new By.ByClassName("ks-mobile-menu-title sn-topBar-title"));
+        lookText = driver.findElement(new By.ByClassName("ks-page-title"));
         lookText.getText();
-
         String actualFullName = String.valueOf(lookText);
-        Assert.assertTrue(actualFullName.contains(searchBar));
+        Assert.assertFalse(actualFullName.contains(searchBar));
 
     }
 
 
-
-
-
     @AfterMethod
     private void close() {
-       try {
+        try {
             Thread.sleep(6000);
         } catch (InterruptedException e) {
-           e.printStackTrace();
-       }
+            e.printStackTrace();
+        }
         driver.quit();
     }
 }
