@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static Pages.Locators.TestsLocators.*;
+
 public class loginTest {
 
     WebDriver driver;
@@ -43,16 +45,16 @@ public class loginTest {
         String password = "124754567459";
       //  String isPasswordCorrect = null;
         String isNotCorect = "Neteisingas el. pašto adresas arba slaptažodis";
-        WebElement loginEmail = driver.findElement(By.xpath("//input[@id='user_email']"));
+        WebElement loginEmail = driver.findElement(loginTest1);
         loginEmail.sendKeys(emailBar);
 
-       WebElement passwordInput = driver.findElement(By.xpath("//input[@id='user_password']"));
+       WebElement passwordInput = driver.findElement(loginTest2);
        passwordInput.sendKeys(password);
 
-        WebElement openprisijungti = driver.findElement(new By.ByClassName("users-session-form__submit"));
+        WebElement openprisijungti = driver.findElement(loginTest3);
         openprisijungti.click();
 
-        WebElement isPasswordCorrect = driver.findElement(new By.ByClassName("users-session-form__error-message"));
+        WebElement isPasswordCorrect = driver.findElement(loginTest4);
         isPasswordCorrect.getText();
         Assert.assertFalse(Boolean.parseBoolean(String.valueOf(isPasswordCorrect)), isNotCorect);
 

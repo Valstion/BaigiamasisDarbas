@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static Pages.Locators.TestsLocators.*;
+
 public class SearchMenuTest {
 
     WebDriver driver;
@@ -40,11 +42,11 @@ public class SearchMenuTest {
 
         String searchBar = "iPhone";
         WebElement lookText = null;
-        WebElement singleInputField = driver.findElement(By.xpath("//input[@id='q']"));
+        WebElement singleInputField = driver.findElement(buttonMessage1);
         singleInputField.sendKeys(searchBar);
-        WebElement buttonShowMessage = driver.findElement(new By.ByClassName("main-search__submit"));
+        WebElement buttonShowMessage = driver.findElement( buttonMessage2);
         buttonShowMessage.click();
-        lookText = driver.findElement(new By.ByClassName("ks-page-title"));
+        lookText = driver.findElement(buttonMessage3);
         lookText.getText();
         String actualFullName = String.valueOf(lookText);
         Assert.assertFalse(actualFullName.contains(searchBar));

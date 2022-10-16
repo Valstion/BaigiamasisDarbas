@@ -13,6 +13,8 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static Pages.Locators.TestsLocators.*;
+
 public class CheckMenu {
 
 
@@ -42,30 +44,30 @@ public class CheckMenu {
 
 
 
-        WebElement computerPartsClickMenu = driver.findElement(By.className("site-top__menu-right-link"));
+        WebElement computerPartsClickMenu = driver.findElement(computerParrtsClickMenu);
         computerPartsClickMenu.click();
-       WebElement dropDownMenuSelect = driver.findElement(By.linkText("Pasiūlymai"));
+       WebElement dropDownMenuSelect = driver.findElement(dropDownMenuiSelected);
         dropDownMenuSelect.click();
         Thread.sleep(2000);
-        WebElement dropDownMenuSelect1 = driver.findElement(By.linkText("Nokautas kainoms"));
+        WebElement dropDownMenuSelect1 = driver.findElement(dropDownMenuiSelected1);
         dropDownMenuSelect1.click();
         Thread.sleep(2000);
-        WebElement dropDownMenuSelect2 = driver.findElement(By.linkText("Sprendimas taupantiems"));
+        WebElement dropDownMenuSelect2 = driver.findElement(computerParrtsClickMenu2);
         dropDownMenuSelect2.click();
         Thread.sleep(2000);
-        WebElement dropDownMenuSelect3 = driver.findElement(By.linkText("Leidiniai"));
+        WebElement dropDownMenuSelect3 = driver.findElement(computerParrtsClickMenu3);
         dropDownMenuSelect3.click();
         Thread.sleep(2000);
-        WebElement dropDownMenuSelect4 = driver.findElement(By.linkText("Patarimai"));
+        WebElement dropDownMenuSelect4 = driver.findElement(computerParrtsClickMenu4);
         dropDownMenuSelect4.click();
         Thread.sleep(2000);
-        WebElement dropDownMenuSelect5 = driver.findElement(By.linkText("SMART NET"));
+        WebElement dropDownMenuSelect5 = driver.findElement(computerParrtsClickMenu5);
         dropDownMenuSelect5.click();
         Thread.sleep(2000);
-        WebElement dropDownMenuSelect6 = driver.findElement(By.linkText("Naujakurys"));
+        WebElement dropDownMenuSelect6 = driver.findElement(computerParrtsClickMenu6);
         dropDownMenuSelect6.click();
         Thread.sleep(2000);
-        WebElement dropDownMenuSelect7 = driver.findElement(By.linkText("Proficard"));
+        WebElement dropDownMenuSelect7 = driver.findElement(computerParrtsClickMenu7);
         dropDownMenuSelect7.click();
         Thread.sleep(2000);
 

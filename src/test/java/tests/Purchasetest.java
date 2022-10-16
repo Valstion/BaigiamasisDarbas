@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static Pages.Locators.TestsLocators.*;
+
 public class Purchasetest {
     WebDriver driver;
     private TimeUnit thread;
@@ -42,24 +44,24 @@ public class Purchasetest {
         String passwordReal = "123456789";
 
 
-        WebElement purchaseBagClick = driver.findElement(new By.ByClassName("catalog-taxons-buy-button__icon"));
+        WebElement purchaseBagClick = driver.findElement( purchase1);
         purchaseBagClick.click();
 
-        WebElement goToTheBagOfJoy = driver.findElement(new By.ByClassName("main-button-border"));
+        WebElement goToTheBagOfJoy = driver.findElement(purchase2);
         goToTheBagOfJoy.click();
-        WebElement purchaseButton = driver.findElement(new By.ByClassName("cart-block__handle"));
+        WebElement purchaseButton = driver.findElement(purchase3);
         purchaseButton.click();
 
-        WebElement continueButton = driver.findElement(By.xpath("//*[contains(@class, 'main-button cart-main-button')]"));
+        WebElement continueButton = driver.findElement(purchase4);
         continueButton.click();
 
-        WebElement loginEmail = driver.findElement(By.xpath("//input[@id='user_email']"));
+        WebElement loginEmail = driver.findElement(purchase5);
         loginEmail.sendKeys(emailReal);
 
-        WebElement passwordInput = driver.findElement(By.xpath("//input[@id='user_password']"));
+        WebElement passwordInput = driver.findElement(purchase6);
         passwordInput.sendKeys(passwordReal);
 
-        WebElement registerButton = driver.findElement(By.name("commit"));
+        WebElement registerButton = driver.findElement(purchase7);
         registerButton.click();
 
     }

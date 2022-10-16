@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static Pages.Locators.TestsLocators.*;
+
 public class Registertest {
     WebDriver driver;
     private TimeUnit thread;
@@ -46,32 +48,32 @@ public class Registertest {
         String password = "123456789";
 
 
-        WebElement login = driver.findElement(By.xpath("//input[@id='user_first_name']"));
+        WebElement login = driver.findElement(registerTest1);
         login.sendKeys(vardas);
 
-        WebElement loginUrname = driver.findElement(By.xpath("//input[@id='user_last_name']"));
+        WebElement loginUrname = driver.findElement(registerTest2);
         loginUrname.sendKeys(pavarde);
 
 
-        WebElement emailInputr = driver.findElement(By.xpath("//input[@id='user_email']"));
+        WebElement emailInputr = driver.findElement(registerTest3);
         emailInputr.sendKeys(emailBars);
 
 
-        WebElement passwordInputer = driver.findElement(By.xpath("//input[@id='user_password']"));
+        WebElement passwordInputer = driver.findElement(registerTest4);
         passwordInputer.sendKeys(password);
 
-        WebElement passwordRepeter = driver.findElement(By.xpath("//input[@id='user_password_confirmation']"));
+        WebElement passwordRepeter = driver.findElement(registerTest5);
         passwordRepeter.sendKeys(password);
 
 
-        WebElement marketingConsent = driver.findElement(By.xpath( "//input[@id='user_marketing_consent_1']")) ;
+        WebElement marketingConsent = driver.findElement(registerTest6) ;
         marketingConsent.click();
 
-        WebElement marketingConsent2 = driver.findElement(By.xpath( "//input[@id='user_marketing_consent_2']")) ;
+        WebElement marketingConsent2 = driver.findElement(registerTest7) ;
         marketingConsent2.click();
 
 
-        WebElement registerButton = driver.findElement( By.name("commit"));
+        WebElement registerButton = driver.findElement( registerTest8);
         registerButton.click();
 
 
