@@ -17,12 +17,15 @@ public class Driver {
         driver.get().manage().deleteAllCookies();
         driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
     public static WebDriver getDriver() {
         return driver.get();
     }
+
     public static void close() {
         driver.get().quit();
     }
+
     private static ChromeOptions setUpOptions() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("window-size=1000,2000");

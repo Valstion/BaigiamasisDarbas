@@ -6,16 +6,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import utils.Screenshots;
 
-    @Listeners(Screenshots.class)
-    public class TestBase {
+@Listeners(Screenshots.class)
+public class TestBase {
 
-        @BeforeMethod
-        public void setUp() {
-            Common.setUpDriver();
-        }
+    @BeforeMethod
+    public void setUp() {
+        Common.setUpDriver();
+    }
 
-        @AfterMethod
-        public void tearDown() {
-            Common.closeDriver();
-        }
+    @AfterMethod
+    public void tearDown() {
+        Common.closeDriver();
+    }
 }

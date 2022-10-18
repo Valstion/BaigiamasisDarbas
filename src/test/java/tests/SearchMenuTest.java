@@ -1,7 +1,7 @@
 package tests;//package readme.seleniumEasy.introduction;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,20 +16,18 @@ import java.util.concurrent.TimeUnit;
 
 import static Pages.Locators.TestsLocators.*;
 
-public class SearchMenuTest {
+public class SearchMenuTest extends TestBase {
 
     WebDriver driver;
     private TimeUnit thread;
 
     @BeforeMethod
-    private void setUp() {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("window-size=2000,3000");
         options.addArguments("--force-device-scale-factor=0.75");
-//        options.addArguments("headless");
-
         driver = new ChromeDriver(options);
         driver.manage().deleteAllCookies();
 
@@ -44,7 +42,7 @@ public class SearchMenuTest {
         WebElement lookText = null;
         WebElement singleInputField = driver.findElement(buttonMessage1);
         singleInputField.sendKeys(searchBar);
-        WebElement buttonShowMessage = driver.findElement( buttonMessage2);
+        WebElement buttonShowMessage = driver.findElement(buttonMessage2);
         buttonShowMessage.click();
         lookText = driver.findElement(buttonMessage3);
         lookText.getText();
@@ -56,11 +54,7 @@ public class SearchMenuTest {
 
     @AfterMethod
     private void close() {
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         driver.quit();
     }
 }

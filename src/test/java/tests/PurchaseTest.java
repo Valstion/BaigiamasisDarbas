@@ -1,12 +1,10 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,12 +14,13 @@ import java.util.concurrent.TimeUnit;
 
 import static Pages.Locators.TestsLocators.*;
 
-public class Purchasetest {
+public class PurchaseTest extends TestBase {
     WebDriver driver;
     private TimeUnit thread;
 
     @BeforeMethod
-    private void setUp() {
+
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -44,7 +43,7 @@ public class Purchasetest {
         String passwordReal = "123456789";
 
 
-        WebElement purchaseBagClick = driver.findElement( purchase1);
+        WebElement purchaseBagClick = driver.findElement(purchase1);
         purchaseBagClick.click();
 
         WebElement goToTheBagOfJoy = driver.findElement(purchase2);
@@ -68,11 +67,7 @@ public class Purchasetest {
 
     @AfterMethod
     private void close() {
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         driver.quit();
     }
 

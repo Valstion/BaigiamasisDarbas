@@ -1,12 +1,10 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,12 +14,12 @@ import java.util.concurrent.TimeUnit;
 
 import static Pages.Locators.TestsLocators.*;
 
-public class Registertest {
+public class RegisterTest extends TestBase {
     WebDriver driver;
     private TimeUnit thread;
 
     @BeforeMethod
-    private void setUp() {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -39,7 +37,6 @@ public class Registertest {
 
     @Test
     private void firstPartTest() throws InterruptedException {
-
 
 
         String vardas = "Jevgenij";
@@ -66,29 +63,24 @@ public class Registertest {
         passwordRepeter.sendKeys(password);
 
 
-        WebElement marketingConsent = driver.findElement(registerTest6) ;
+        WebElement marketingConsent = driver.findElement(registerTest6);
         marketingConsent.click();
 
-        WebElement marketingConsent2 = driver.findElement(registerTest7) ;
+        WebElement marketingConsent2 = driver.findElement(registerTest7);
         marketingConsent2.click();
 
 
-        WebElement registerButton = driver.findElement( registerTest8);
+        WebElement registerButton = driver.findElement(registerTest8);
         registerButton.click();
 
 
     }
+
     @AfterMethod
-    private void close () {
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    private void close() {
+
         driver.quit();
     }
-
-
 
 
 }

@@ -1,7 +1,6 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,13 +15,13 @@ import java.util.concurrent.TimeUnit;
 
 import static Pages.Locators.TestsLocators.*;
 
-public class loginTest {
-
+public class LoginTest extends TestBase {
     WebDriver driver;
     private TimeUnit thread;
+    private String loginEmail;
 
     @BeforeMethod
-    private void setUp() {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -43,13 +42,16 @@ public class loginTest {
 
         String emailBar = "emaxer@gmail.com";
         String password = "124754567459";
-      //  String isPasswordCorrect = null;
+        //  String isPasswordCorrect = null;
         String isNotCorect = "Neteisingas el. pašto adresas arba slaptažodis";
+
+        // loginTestPage.enterLoginEmail(String.valueOf(loginEmail));
+
         WebElement loginEmail = driver.findElement(loginTest1);
         loginEmail.sendKeys(emailBar);
 
-       WebElement passwordInput = driver.findElement(loginTest2);
-       passwordInput.sendKeys(password);
+        WebElement passwordInput = driver.findElement(loginTest2);
+        passwordInput.sendKeys(password);
 
         WebElement openprisijungti = driver.findElement(loginTest3);
         openprisijungti.click();
@@ -59,13 +61,10 @@ public class loginTest {
         Assert.assertFalse(Boolean.parseBoolean(String.valueOf(isPasswordCorrect)), isNotCorect);
 
     }
-        @AfterMethod
-        private void close () {
-            try {
-                Thread.sleep(6000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            driver.quit();
-        }
+
+    @AfterMethod
+    private void close() {
+
+        driver.quit();
+    }
 }

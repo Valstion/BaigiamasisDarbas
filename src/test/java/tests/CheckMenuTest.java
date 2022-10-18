@@ -1,11 +1,11 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,14 +15,14 @@ import java.util.concurrent.TimeUnit;
 
 import static Pages.Locators.TestsLocators.*;
 
-public class CheckMenu {
+public class CheckMenuTest extends TestBase {
 
 
     WebDriver driver;
     private TimeUnit thread;
 
     @BeforeMethod
-    private void setUp() {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -42,11 +42,9 @@ public class CheckMenu {
     private void MainMenuTest() throws InterruptedException {
 
 
-
-
         WebElement computerPartsClickMenu = driver.findElement(computerParrtsClickMenu);
         computerPartsClickMenu.click();
-       WebElement dropDownMenuSelect = driver.findElement(dropDownMenuiSelected);
+        WebElement dropDownMenuSelect = driver.findElement(dropDownMenuiSelected);
         dropDownMenuSelect.click();
         Thread.sleep(2000);
         WebElement dropDownMenuSelect1 = driver.findElement(dropDownMenuiSelected1);
@@ -70,19 +68,14 @@ public class CheckMenu {
         WebElement dropDownMenuSelect7 = driver.findElement(computerParrtsClickMenu7);
         dropDownMenuSelect7.click();
         Thread.sleep(2000);
-
+        Assert.assertFalse(dropDownMenuSelect7.isEnabled());
     }
 
     @AfterMethod
     private void close() {
-     //   try {
-      //      Thread.sleep(6000);
-     //   } catch (InterruptedException e) {
-     //       e.printStackTrace();
-      //  }
+
         driver.quit();
     }
-
 
 
 }
