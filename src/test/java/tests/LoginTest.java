@@ -1,5 +1,6 @@
 package tests;
 
+import Pages.loginTestPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,7 +28,7 @@ public class LoginTest extends TestBase {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("window-size=2000,3000");
         options.addArguments("--force-device-scale-factor=0.75");
-//        options.addArguments("headless");
+
 
         driver = new ChromeDriver(options);
         driver.manage().deleteAllCookies();
@@ -42,13 +43,13 @@ public class LoginTest extends TestBase {
 
         String emailBar = "emaxer@gmail.com";
         String password = "124754567459";
-        //  String isPasswordCorrect = null;
+
         String isNotCorect = "Neteisingas el. pašto adresas arba slaptažodis";
 
-        // loginTestPage.enterLoginEmail(String.valueOf(loginEmail));
+
 
         WebElement loginEmail = driver.findElement(loginTest1);
-        loginEmail.sendKeys(emailBar);
+       loginEmail.sendKeys(emailBar);
 
         WebElement passwordInput = driver.findElement(loginTest2);
         passwordInput.sendKeys(password);
